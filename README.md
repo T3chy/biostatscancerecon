@@ -1,2 +1,2 @@
 # biostatscancerecon
-TODO add pop figures
+TODO add pop figures and make cancer deaths a porportion of population
