@@ -14,7 +14,7 @@ packages <- c("readxl","openxlsx","tidyverse","lubridate","data.table")
 new.packages <- packages[!(packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 ```
-## setwd
+## setwd- maybe put this after all the stuff and before graphing?
 We need to make sure that R is looking in the right folder for both reading and writing of data and figures. We will use the command setwd() to acomplish. If at any time you want to see where R is looking, you can run the command getwd() inside the brackets of setwd(), put in quotes the folder you want to make R look at. For example, on a mac, running the command setwd("~/Desktop") would have R look at your desktop folder. The ~/ is a shortcut for the directory path to the user folder
 ```{r}
 setwd=("your directory here!")
@@ -24,6 +24,7 @@ getwd()
 ## Read an Excel file and CSV file into separte dataframes `merged` and `country_codes`, respectively. On the command we use to read the excel file, the text "readxl" before the :: denotes the library that the command comes from, while the "read_xlsx" that comes after is the function we are calling ## we don't need merged codes, allmerged already has the preprocessing it was used for done
 ```{r}
 merged <- readxl::read_xlsx(here::here("allmerged.xlsx"), sheet = 1, guess_max = 5000)
+country_codes <- read.csv(here::here("mergedcodes.csv")) 
 ```
 ## Indexing and Assigning Variables:  Rename columns
 Let's see what the names of the columns in our `country_codes` dataframe look like: 
