@@ -1,0 +1,81 @@
+---
+title: "CancerEcon Tutorial"
+subtitle:  "Reading, Basic Indexing, and Merging Data"
+author: Nick Fong (nick.fong [at])
+date: 2020-06-25
+output: html_document
+---
+
+## Library Imports
+These need to be run to import other libraries, or collections of functions writen by other people to make our jobs easier
+```{r}
+suppressMessages(library(here))
+library(readxl)
+library(openxlsx)
+library(tidyverse)
+library(lubridate)
+library(dplyr)
+library(data.table)
+```
+
+## Read an Excel file and CSV file into separte dataframes `merged` and `country_codes`, respectively
+```{r}
+merged <- read_excel(here::here("allmerged.xlsx"), sheet = 1, guess_max = 5000)
+country_codes <- read.csv(here::here("mergedcodes.csv"))
+```
+## Indexing and Assigning Variables:  Rename columns
+Let's see what the names of the columns in our `country_codes` dataframe look like:
+```{r}
+colnames(country_codes)
+```
+We can rename the columns by indexing into the list of columns.  Each element in the list of columns has an index, starting with 1:
+```{r}
+colnames(country_codes)[1]
+colnames(country_codes)[2]
+```
+What would you expect `colnames(country_codes)[3]` to output?
+```{r}
+colnames(country_codes)[3]
+```
+So we can rename the columns by assigning new names to the indexed elements:
+```{r}
+colnames(country_codes)[2] <- 'Name'
+colnames(country_codes)[3] <- 'ISO3166'
+```
+We can also drop columns we don't care about in anticipation of our merge later.  The `%>%` is called a pipe; don't worry about what this is doing for now.  Note that the `select` function from `dplyr` chooses which columns you want to keep:
+```{r}
+country_codes <- country_codes %>% select(Name, ISO3166)
+```
+And now we can check our work:
+```{r}
+colnames(country_codes)
+```
+
+## Merge Data:  Add country names to merged data
+Now we're going to add the country codes to our merged data so that it's easier for us to read.  To do this, we need a column in the `merged` dataframe that has the same name as the `country_code` data frame, so we'll start by renaming the relevant column in `merged`:
+```{r}
+colnames(merged)[2] <- 'ISO3166'
+```
+Next we should check to make sure that the column names are correct.  Verify that this is the case in the block below:
+```{r}
+# Your code here
+```
+
+Now we can merge the two data frames.  We're going to do a left outer join using the `merge` function.  This means that we want every row in the `merged` data frame to be preserved, and to ignore rows in the `country_codes` data frame that don't have a corresponding row in `merged`.  `Left` refers to the fact that we're preserving the rows in the left data frame, where left is given by the first argument to `merge` and right is given by the second argument.  If this doesn't make sense, don't worry about it for now.
+```{r}
+merged <- merge(merged, country_codes, by='ISO3166', all.x=TRUE)
+```
+
+It might be helpful to have the country names in the first column.  `dplyr` makes this easy for us:
+```{r}
+merged <- merged %>% select(Name, everything())
+```
+
+And now we can look at our data frame and see that we've added the country names to each row in our dataframe:
+```{r}
+merged
+```
+Finally, we can write our changes back to disk:
+```{r}
+write.csv(merged, file = here::here("merged_with_country_names.csv"), row.names = FALSE)
+```
