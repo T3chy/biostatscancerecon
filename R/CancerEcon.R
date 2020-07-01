@@ -34,5 +34,15 @@ rm(newaggdeaths)
 rm(WHO)
 rm(straightdeaths)
 pop <- as.data.frame(readxl::read_excel("A:\\Classes\\biostats\\pop.xlsx"))
-npop <- select(pop,...5,...43,...53,...63,...68)
-npop <- tail(npop, -11)
+pop <- select(pop,...5,...43,...53,...63,...68)
+pop <- tail(npop, -11)
+## pop <- data.frame(t(pop[-1])) on the fence abt this
+names(pop) = c("x","country","1985","1995","2005","2010")
+               
+               
+mergedata <- as.data.frame(readxl::read_xlsx("allmerged.xlsx"))
+scatter.smooth(x=mergedata$GDPPC, y=mergedata$DeathsPC, main="Cancer-Related Deaths Per Capita ~ GDP Per Capita")                
+95data <- as.data.frame(dplyr::filter(mergedata, Year == '1995'))
+85data <- as.data.frame(dplyr::filter(mergedata, Year == '1985'))
+05data <- as.data.frame(dplyr::filter(mergedata, Year == '2005'))
+10data <- as.data.frame(dplyr::filter(mergedata, Year == '2010'))
