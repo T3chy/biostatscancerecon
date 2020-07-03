@@ -42,7 +42,42 @@ names(pop) = c("x","country","1985","1995","2005","2010")
                
 mergedata <- as.data.frame(readxl::read_xlsx("allmerged.xlsx"))
 scatter.smooth(x=mergedata$GDPPC, y=mergedata$DeathsPC, main="Cancer-Related Deaths Per Capita ~ GDP Per Capita")                
-95data <- as.data.frame(dplyr::filter(mergedata, Year == '1995'))
-85data <- as.data.frame(dplyr::filter(mergedata, Year == '1985'))
-05data <- as.data.frame(dplyr::filter(mergedata, Year == '2005'))
-10data <- as.data.frame(dplyr::filter(mergedata, Year == '2010'))
+data <- as.data.frame(dplyr::filter(mergedata, Year == '1995'))
+data <- as.data.frame(dplyr::filter(mergedata, Year == '1985'))
+data <- as.data.frame(dplyr::filter(mergedata, Year == '2005'))
+data <- as.data.frame(dplyr::filter(mergedata, Year == '2010'))
+
+setwd("A:\\Classes\\biostatscancerecon\\raw_data")
+newdeaths <- read.csv('newdeaths.csv')
+newdeaths <- tail(newdeaths,-2)
+deathcodes <- merge(x=newdeaths,y=codes, by.x = "X6", by.y = "X.2")
+names(deathcodes) <- c("Country","X","infect",'nofood','cancer','code')
+deathcodes <- select(deathcodes,!X)
+deathpop <- merge(deathcodes,pop,by.x = 'code', by.y = 'country')
+scatter.smooth(deathpop$infect,deathpop$nofood)
+gdppc <- select(gdppc, Country.or.Area, Value)
+names(gdppc) <- c("country","gdppc")
+all <- merge(deathpop, gdppc, by.x = "Country", by.y = "country")
+all <- read.csv("all.csv")
+
+
+
+
+
+all$cancer <- as.numeric(levels(all$cancer)[all$cancer])
+all$nofood <- as.numeric(levels(all$nofood)[all$nofood])
+all$infect <- as.numeric(levels(all$infect)[all$infect])
+all$pop <- as.numeric(levels(all$pop)[all$pop])
+all$cancerpop <- all$cancer / all$pop
+all$infectpop <- all$infect / all$pop
+all$nofoodpop <- all$nofood / all$pop
+
+# start here if you've downloaded the all.csv
+library(ggplot2)
+# if it says no package called 'ggplot2' or something, run 
+install.packages('ggplot2')
+all <- read.csv("all.csv")
+ggplot(data = all, aes(x=all$gdppc, y=all$nofoodpop, group=1,color='nofood')) + xlab("GDP per capita")+ ylab("Deaths per capita")+ geom_smooth(method = "lm", formula = y ~ x) + geom_smooth(data = all, aes(x=all$gdppc, y=all$infectpop, group=1,color='infect'),method = "lm", formula = y ~ x) + geom_smooth(data = all, aes(x=all$gdppc, y=all$cancerpop, group=1, color='cancer'), method='lm')
+liboxplot(all$cancerpop)
+boxplot(all$infectpop)
+boxplot(all$nofoodpop)
