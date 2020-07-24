@@ -11,7 +11,7 @@ https://population.un.org/wpp/Download/Standard/Population/
 cancerpop / gdppc r value: .524
 infectpop / gdppc r value: -.37
 nofoodpop / gdppc r value: -.32
-t-test not applicable, neither is chi squared unless we want to make categories of gdppc / death rates, data is not normally distributed(hard left(lower gdppc) skew)
+t-test not applicable
 Shapiro-Wilk normality test (>.05 = normally distributed)
 gdppc: p-value < 2.2e-16
 cancerpop:  p-value = 1.046e-11
@@ -30,3 +30,7 @@ infectpop: 1.509486
 nofoodpop: 2.406604
 gdppc categories from https://blogs.worldbank.org/opendata/new-country-classifications-income-level-2018-2019 (combined both medium incomes)
 other categories are low =  < first quartile, medium = between q1 and q3, high is bigger than q3
+chi squared tests:
+cancerpop/ gdppc p-value = 1.742e-13
+infectpop / gdppc p-value < 2.2e-16
+nofoodpop / gdppc  p-value = 6.752e-14
