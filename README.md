@@ -6,6 +6,18 @@ cancerpop / gdppc r value: .524
 infectpop / gdppc r value: -.37
 nofoodpop / gdppc r value: -.32
 t-test not applicable, neither is chi squared unless we want to make categories of gdppc / death rates, data is not normally distributed(hard left(lower gdppc) skew)
+Shapiro-Wilk normality test (>.05 = normally distributed)
+gdppc: p-value < 2.2e-16
+cancerpop:  p-value = 1.046e-11
+infectpop: p-value < 2.2e-16
+p-value < 2.2e-16
+Kolmogorov And Smirnov Tests, if p < .05, that implies the vectors follow different distributions (stats are population controlled).
+
+cancer/infect: p-value < 2.2e-16
+cancer/nofood: p-value < 2.2e-16
+infect/nofood: p-value < 2.2e-16
+
+
 ## **To download a csv file from this github:** ##
 -click on the csv file
 -click on "raw" in the top right corner, it should bring you to a wall of straight text
