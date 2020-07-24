@@ -8,11 +8,10 @@ https://population.un.org/wpp/Download/Standard/Population/
 -right click the text, click "save as" and save the file as 'all.csv'
 -done!
 # **Stats**
-cancerpop / gdppc r value: .524
-infectpop / gdppc r value: -.37
-nofoodpop / gdppc r value: -.32
+cancerpop / gdppc r value: .524 p-value = 3.679e-13
+infectpop / gdppc r value: -.37 p-value = 6.438e-07                     
+nofoodpop / gdppc r value: -.32 p-value = 2.354e-05                      
 <br />
-t-test not applicable
 <br />
 Shapiro-Wilk normality test (>.05 = normally distributed)
 <br />
@@ -32,7 +31,7 @@ cancerpop: 0.9033609
 infectpop: 1.509486
 nofoodpop: 2.406604
 <br />
-gdppc categories from https://blogs.worldbank.org/opendata<br />ew-country-classifications-income-level-2018-2019 (combined both medium incomes)
+gdppc categories from https://blogs.worldbank.org/opendata<br/>ew-country-classifications-income-level-2018-2019 (combined both medium incomes)
 other categories are low =  < first quartile, medium = between q1 and q3, high is bigger than q3
 <br />
 chi squared tests:
@@ -40,3 +39,5 @@ chi squared tests:
 cancerpop/ gdppc p-value = 1.742e-13
 infectpop / gdppc p-value < 2.2e-16
 nofoodpop / gdppc  p-value = 6.752e-14
+TODO 
+ANOVA
