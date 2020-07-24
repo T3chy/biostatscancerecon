@@ -8,9 +8,9 @@ https://population.un.org/wpp/Download/Standard/Population/
 -right click the text, click "save as" and save the file as 'all.csv'
 -done!
 # **Stats**
-cancerpop / gdppc r value: .524 p-value = 3.679e-13
-infectpop / gdppc r value: -.37 p-value = 6.438e-07                     
-nofoodpop / gdppc r value: -.32 p-value = 2.354e-05                      
+cancerpop / gdppc r value: .524 p-value = 3.679e-13 <br />
+infectpop / gdppc r value: -.37 p-value = 6.438e-07    <br />                 
+nofoodpop / gdppc r value: -.32 p-value = 2.354e-05 <br />                     
 <br />
 <br />
 Shapiro-Wilk normality test (>.05 = normally distributed)
