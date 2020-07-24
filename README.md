@@ -13,21 +13,21 @@ Statistic | r Value | P Value
 cancerpop / gdppc r value | .524 | 3.679e-13
 infectpop / gdppc r value | -.37 | 6.438e-07
 nofoodpop / gdppc r value | -.32 | 2.354e-05
-Shapiro-Wilk normality test | (>.05 = normally distributed)
+**Shapiro-Wilk normality test** | *(>.05 = normally distributed)*
 gdppc | | < 2.2e-16
 cancerpop | | 1.046e-11
 infectpop | | < 2.2e-16
-Kolmogorov And Smirnov Tests | if p < .05, that implies the vectors follow different distributions (stats are population controlled).
+**Kolmogorov And Smirnov Tests** | *if p < .05, that implies the vectors follow different distributions (stats are population controlled)*
 cancer/infect | |< 2.2e-16
 cancer/nofood | |< 2.2e-16
 infect/nofood | |< 2.2e-16
-skewness | |
+**skewness** | |
 gdppc | | 2.287668
 cancerpop | | 0.9033609
 infectpop | | 1.509486
 nofoodpop | | 2.406604
-gdppc categories from | https://blogs.worldbank.org/opendata<br/>ew-country-classifications-income-level-2018-2019 (combined both medium incomes)
-other categories are | low =  < first quartile, medium = between q1 and q3, high is bigger than q3
+*gdppc categories from* | *https://blogs.worldbank.org/opendata<br/>ew-country-classifications-income-level-2018-2019 (combined both medium incomes)*
+*other categories are* | *low =  < first quartile, medium = between q1 and q3, high is bigger than q3*
 **chi squared tests** | |
 cancerpop/ gdppc   | | 1.742e-13
 infectpop / gdppc  | | < 2.2e-16
