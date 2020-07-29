@@ -40,4 +40,13 @@ cancerpop/ gdppc p-value = 1.742e-13
 infectpop / gdppc p-value < 2.2e-16
 nofoodpop / gdppc  p-value = 6.752e-14
 TODO 
-ANOVA
+ANOVA: 
+<br />
+data:  gdppc by infectpopc
+Kruskal-Wallis chi-squared = 74.401, df = 2, p-value < 2.2e-16
+<br />
+data:  gdppc by cancerpop
+Kruskal-Wallis chi-squared = 166, df = 166, p-value = 0.4854
+<br />
+data:  gdppc by nofoodpop
+Kruskal-Wallis chi-squared = 164.12, df = 163, p-value = 0.4606
