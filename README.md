@@ -43,7 +43,22 @@ Kruskal-Wallis chi-squared = 166, df = 166, p-value = 0.4854
 <br />
 data:  gdppc by nofoodpop
 Kruskal-Wallis chi-squared = 164.12, df = 163, p-value = 0.4606
+**Wilcoxon rank sum test (comparing all countries who scored "low"(lower than Q1) on the respective populatio controlled mortality cause)** | |
+
+data:  lowcancer$gdppc and lowinfect$gdppc
+W = 224, p-value = 3.939e-09
+alternative hypothesis: true location shift is not equal to 0
+<br />
+
+data:  lowcancer$gdppc and lownofood$gdppc
+W = 346, p-value = 1.625e-06
+alternative hypothesis: true location shift is not equal to 0
+<br />
+data:  lowinfect$gdppc and lownofood$gdppc
+W = 1145, p-value = 0.01862
+alternative hypothesis: true location shift is not equal to 0
+NOTE THAT THE P VALUE IS MAD HIGHER HERE THIS IS IMPORTANT CUZ POOR COUNTRIES DONT GET CANCER BUT THEY GET NO FOOD AND INFECT DEATHS SOMEWHAT MORE RELATEDLEY
+
+
 TODO:
-- [ ] ANOVA
 - [ ] `cor.test` results to this `md` file
-- [ ] t test
