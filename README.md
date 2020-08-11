@@ -30,9 +30,9 @@ nofoodpop | | 2.406604
 *gdppc categories from* | *https://blogs.worldbank.org/opendata<br/>ew-country-classifications-income-level-2018-2019 (combined both medium incomes)*
 *other categories are* | *low =  < first quartile, medium = between q1 and q3, high is bigger than q3*
 **chi squared tests** | |
-cancerpop/ gdppc   | | 1.742e-13
-infectpop / gdppc  | | < 2.2e-16
-nofoodpop / gdppce | |   6.752e-14
+cancerpop/ gdppc   | | 1.742e-13 X-squared = 71.805
+infectpop / gdppc  | | < 2.2e-16 X-squared = 93.987
+nofoodpop / gdppce | |   6.752e-14 X-squared = 73.808
 **ANOVA** | |
 <br />
 data:  comparing infection deaths per capita versus economic categories
