@@ -62,3 +62,79 @@ NOTE THAT THE P VALUE IS MAD HIGHER HERE THIS IS IMPORTANT CUZ POOR COUNTRIES DO
 
 TODO:
 - [ ] `cor.test` results to this `md` file
+
+
+
+> chisq.test(all$gdppcc, all$infectpopc)
+
+	Pearson's Chi-squared test
+
+data:  all$gdppcc and all$infectpopc
+X-squared = 93.987, df = 6, p-value < 2.2e-16
+
+> chisq.test(all$gdppcc, all$nofoodpopc)
+
+	Pearson's Chi-squared test
+
+data:  all$gdppcc and all$nofoodpopc
+X-squared = 73.808, df = 6, p-value = 6.752e-14
+
+> chisq.test(all$gdppcc, all$cancerpopc)
+
+	Pearson's Chi-squared test
+
+data:  all$gdppcc and all$cancerpopc
+X-squared = 71.805, df = 6, p-value = 1.742e-13
+
+> summary(all$gdppc)
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+    90.73   1357.99   4480.79  12367.52  13129.38 104771.86 
+> summary(all$nofoodpop)
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+3.070e-07 6.895e-06 3.060e-05 9.392e-05 1.232e-04 9.558e-04 
+> summary(all$infectpop)
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+0.0000150 0.0001271 0.0002822 0.0011894 0.0016448 0.0067109 
+> summary(all$cancerpop)
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+0.0001296 0.0005438 0.0007618 0.0011561 0.0017122 0.0032679 
+> kruskal.test(all$gdppc, all$infectpopc)
+
+	Kruskal-Wallis rank sum test
+
+data:  all$gdppc and all$infectpopc
+Kruskal-Wallis chi-squared = 74.401, df = 2, p-value <
+2.2e-16
+
+> kruskal.test(all$infectpop, all$gdppcc)
+
+	Kruskal-Wallis rank sum test
+
+data:  all$infectpop and all$gdppcc
+Kruskal-Wallis chi-squared = 91.45, df = 3, p-value <
+2.2e-16
+
+> kruskal.test(all$nofoodpop, all$gdppcc)
+
+	Kruskal-Wallis rank sum test
+
+data:  all$nofoodpop and all$gdppcc
+Kruskal-Wallis chi-squared = 60.515, df = 3, p-value =
+4.562e-13
+
+> kruskal.test(all$cancerpop, all$gdppcc)
+
+	Kruskal-Wallis rank sum test
+
+data:  all$cancerpop and all$gdppcc
+Kruskal-Wallis chi-squared = 61.579, df = 3, p-value =
+2.703e-13
+> library(e1071)
+> skewness(all$gdppc)
+[1] 2.287668
+> skewness(all$infectpop)
+[1] 1.509486
+> skewness(all$nofoodpop)
+[1] 2.406604
+> skewness(all$cancerpop)
+[1] 0.9033609
