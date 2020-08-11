@@ -35,14 +35,14 @@ infectpop / gdppc  | | < 2.2e-16
 nofoodpop / gdppce | |   6.752e-14
 **ANOVA** | |
 <br />
-data:  gdppc by infectpopc
-Kruskal-Wallis chi-squared = 74.401, df = 2, p-value < 2.2e-16
+data:  comparing infection deaths per capita versus economic categories
+Kruskal-Wallis chi-squared = 91.45, df = 3, p-value < 2.2e-16
 <br />
-data:  gdppc by cancerpop
-Kruskal-Wallis chi-squared = 166, df = 166, p-value = 0.4854
+data:  comparing cancer deaths per capita versus economic categories
+Kruskal-Wallis chi-squared = 61.579, df = 3, p-value = 2.703e-13
 <br />
-data:  gdppc by nofoodpop
-Kruskal-Wallis chi-squared = 164.12, df = 163, p-value = 0.4606
+data: comparing malnutrition deaths per capita versus economic categories
+Kruskal-Wallis chi-squared = 60.515, df = 3, p-value = 4.562e-13
 **Wilcoxon rank sum test (comparing all countries who scored "low"(lower than Q1) on the respective populatio controlled mortality cause)** | |
 
 data:  lowcancer$gdppc and lowinfect$gdppc
